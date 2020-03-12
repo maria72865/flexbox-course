@@ -1,14 +1,115 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Hi flexbox</title>
+    <meta charset='UTF-8'>
+    <title>Goodnight Bird</title>
+    <link href="https://fonts.googleapis.com/css?family=Dancing+Script:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ"
+        crossorigin="anonymous"></script>
+
+    <style>
+        html {
+            font-family: 'Oxygen', sans-serif;
+        }
+        body {
+            margin: 0px;
+        }
+        .navbar {
+            background: #e1dfe2;
+        }
+        .navbar div {
+            display: none;
+        }
+        .navbar .toggle,
+        .navbar .brand {
+            display: inline-block;
+        }
+        .navbar .link {
+            display: flex;
+            padding: 1em;
+            text-decoration: none;
+            background: #815578;
+            color: white;
+        }
+        .navbar .link:hover,
+        .navbar .link:active {
+            color: #815578;
+            background: #c39fbb;
+        }
+        .navbar .brand {
+            width: 10em;
+            padding: 1em;
+            background-color: #e1dfe2;
+        }
+        .navbar a {
+            text-decoration: none;
+        }
+        .navbar .toggle {
+            padding: 1em;
+            color: black;
+        }
+
+        @media (min-width: 48em) {
+            .navbar {
+                display: flex;
+            }
+            .navbar .left,
+            .navbar .right {
+                display: flex;
+                flex: 1;
+            }
+            .navbar .link {
+                width: 70px;
+                text-align: center;
+                flex-wrap: wrap;
+            }
+            .navbar .right {
+                justify-content: flex-end;
+            }
+            .navbar .toggle {
+                display: none;
+            }
+        }
+
+        @media (max-width: 48em) {
+
+            .navbar .toggle {
+                font-size: 2em;
+            }
+            .navbar.active .toggle {
+                background: #c39fbb;
+                color: white;
+            }
+            .navbar.active div {
+                display: block;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Hi Flexbox</h1>
-    <p>Some content</p>
-    
+    <div class="navbar">
+        <a href="#" class="toggle" id="navHamburger">
+            <i class="fas fa-bars"></i>
+        </a>
+        <a href="#" class="brand"><img src="goodnight-bird.jpg"></img></a>
+        <div class="left">
+            <a href="#" class="link">Audio & Illustrations</a>
+            <a href="#" class="link">Audio Only</a>
+        </div>
+        <div class="right">
+            <a href="#" class="link">Coordinating Accessories</a>
+        </div>
+    </div>
 </body>
+
+<script>
+    const navHamburger = document.querySelector('#navHamburger');
+    navHamburger.addEventListener('click', (e) => {
+        navHamburger.parentElement.classList.toggle('active');
+    })
+</script>
+
 </html>
